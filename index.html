@@ -1,0 +1,413 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equora Wellness — El lugar seguro de tu bienestar</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: #8B7355;
+            background: #E8E3D8;
+            line-height: 1.7;
+        }
+        header {
+            padding: 1.5rem 2rem;
+            border-bottom: 1px solid rgba(139, 115, 85, 0.15);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #F5F2ED;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            font-size: 24px;
+            font-weight: 500;
+            color: #8B7355;
+        }
+        nav {
+            display: flex;
+            gap: 2rem;
+        }
+        nav a {
+            text-decoration: none;
+            color: #A89968;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        nav a:hover {
+            color: #8B7355;
+        }
+        .hero {
+            padding: 6rem 2rem;
+            text-align: center;
+            background: #E8E3D8;
+        }
+        .hero-icon {
+            font-size: 48px;
+            margin-bottom: 1rem;
+        }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #8B7355;
+        }
+        .hero .tagline {
+            font-size: 20px;
+            color: #A89968;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        .hero p {
+            font-size: 16px;
+            color: #A89968;
+            max-width: 600px;
+            margin: 0 auto 3rem;
+            font-style: italic;
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .btn {
+            padding: 14px 32px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.2s;
+            font-weight: 500;
+        }
+        .btn-primary {
+            background-color: #8B7355;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #6F5A47;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background-color: transparent;
+            color: #8B7355;
+            border: 2px solid #8B7355;
+        }
+        .btn-secondary:hover {
+            background-color: rgba(139, 115, 85, 0.08);
+        }
+        .disclaimer {
+            padding: 2rem;
+            background: rgba(122, 155, 127, 0.1);
+            border-left: 4px solid #7A9B7F;
+            margin: 3rem auto 0;
+            max-width: 700px;
+            border-radius: 8px;
+            text-align: left;
+        }
+        .disclaimer h3 {
+            font-size: 14px;
+            font-weight: 600;
+            color: #7A9B7F;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .disclaimer p {
+            font-size: 14px;
+            color: #8B7355;
+            margin: 0.5rem 0;
+        }
+        .features {
+            padding: 6rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            background: #F5F2ED;
+        }
+        .features h2 {
+            font-size: 32px;
+            font-weight: 500;
+            text-align: center;
+            margin-bottom: 3rem;
+            color: #8B7355;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .feature-card {
+            padding: 2rem;
+            border-radius: 12px;
+            background: #E8E3D8;
+            border: 1px solid rgba(139, 115, 85, 0.15);
+        }
+        .feature-icon {
+            font-size: 36px;
+            margin-bottom: 1rem;
+        }
+        .feature-card h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+            color: #8B7355;
+        }
+        .feature-card p {
+            font-size: 14px;
+            color: #A89968;
+        }
+        .security-section {
+            padding: 6rem 2rem;
+            background: #E8E3D8;
+        }
+        .security-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        .security-content h2 {
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 2rem;
+            color: #8B7355;
+            text-align: center;
+        }
+        .security-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        .security-item {
+            padding: 2rem;
+            background: #F5F2ED;
+            border-radius: 12px;
+            border: 1px solid rgba(139, 115, 85, 0.15);
+        }
+        .security-item h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            color: #8B7355;
+        }
+        .security-item p {
+            font-size: 14px;
+            color: #A89968;
+            line-height: 1.8;
+        }
+        .beta-section {
+            padding: 6rem 2rem;
+            background: #F5F2ED;
+        }
+        .beta-content {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .beta-content h2 {
+            font-size: 32px;
+            font-weight: 500;
+            margin-bottom: 1.5rem;
+            color: #8B7355;
+        }
+        .beta-content p {
+            font-size: 16px;
+            color: #A89968;
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+        }
+        .community-links {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+        .link-btn {
+            padding: 10px 20px;
+            border-radius: 8px;
+            background: #E8E3D8;
+            border: 1px solid #A89968;
+            text-decoration: none;
+            color: #8B7355;
+            font-size: 14px;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+        .link-btn:hover {
+            background: #8B7355;
+            color: #F5F2ED;
+            border-color: #8B7355;
+        }
+        footer {
+            padding: 3rem 2rem;
+            border-top: 1px solid rgba(139, 115, 85, 0.15);
+            background: #E8E3D8;
+        }
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+        .footer-section h4 {
+            font-size: 12px;
+            font-weight: 500;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #8B7355;
+        }
+        .footer-section a {
+            display: block;
+            font-size: 14px;
+            color: #A89968;
+            text-decoration: none;
+            margin-bottom: 0.5rem;
+            transition: color 0.2s;
+        }
+        .footer-section a:hover {
+            color: #8B7355;
+        }
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(139, 115, 85, 0.15);
+            font-size: 12px;
+            color: #A89968;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo">Equora</div>
+        <nav>
+            <a href="#features">Características</a>
+            <a href="#security">Seguridad</a>
+            <a href="#beta">Beta</a>
+            <a href="#contact">Contacto</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-icon">🌱</div>
+        <h1>Equora Wellness</h1>
+        <p class="tagline">El lugar seguro de tu bienestar</p>
+        <p>Bienvenido/a a tu lugar seguro 🌿</p>
+        <div class="cta-buttons">
+            <a href="https://forms.gle/K1TktDNLDBMpMgbH9" class="btn btn-primary">Unirse a beta</a>
+            <a href="https://t.me/Equira_Beta" class="btn btn-secondary">Comunidad Telegram</a>
+        </div>
+        
+        <div class="disclaimer">
+            <h3>⚠️ Importante</h3>
+            <p><strong>Equora no reemplaza un diagnóstico médico ni la atención de un profesional.</strong> Es una herramienta para registrar y entender tus patrones de bienestar. Si experimentas una crisis o necesitas ayuda inmediata, contacta a un profesional de la salud o a tu contacto de emergencia.</p>
+        </div>
+    </section>
+
+    <section class="features" id="features">
+        <h2>¿Qué hace Equora?</h2>
+        <div class="features-grid">
+            <div class="feature-card">
+                <div class="feature-icon">📊</div>
+                <h3>Seguimiento diario</h3>
+                <p>Registra tu estado emocional, ansiedad, irritabilidad, energía, concentración, sueño y ejercicio cada día.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💊</div>
+                <h3>Gestión de medicamentos</h3>
+                <p>Registra tus medicamentos con dosis y horarios. Recibe recordatorios automáticos para no olvidar tus tomas.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📈</div>
+                <h3>Visualiza patrones</h3>
+                <p>Gráficos claros que te muestran cómo evolucionan tus indicadores de bienestar a lo largo del tiempo.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">📄</div>
+                <h3>Reportes exportables</h3>
+                <p>Genera reportes en PDF para compartir con profesionales de la salud cuando lo necesites.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🧘</div>
+                <h3>Ejercicios de calma</h3>
+                <p>Acceso a ejercicios de respiración y técnicas de grounding para momentos de estrés.</p>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌙</div>
+                <h3>Modo oscuro</h3>
+                <p>Interfaz que se adapta a tu preferencia. Disponible para tus ojos en cualquier momento.</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="security-section" id="security">
+        <div class="security-content">
+            <h2>Tu privacidad y seguridad, primero</h2>
+            <div class="security-grid">
+                <div class="security-item">
+                    <h3>🔒 Bloqueo con PIN</h3>
+                    <p>Todos tus datos están protegidos por un PIN de seguridad que solo tú conoces. Sistema de cifrado SHA-256 para máxima protección.</p>
+                </div>
+                <div class="security-item">
+                    <h3>📱 Datos locales</h3>
+                    <p>Tus datos de bienestar nunca salen de tu dispositivo. Todo se almacena localmente. Nada en la nube, nada compartido.</p>
+                </div>
+                <div class="security-item">
+                    <h3>🚫 Sin venta de datos</h3>
+                    <p>Nunca vendemos, compartimos ni monetizamos tus datos personales o de salud. Transparencia total.</p>
+                </div>
+                <div class="security-item">
+                    <h3>🆘 Contacto de emergencia</h3>
+                    <p>Configura un número de teléfono para contactar en momentos difíciles. Siempre disponible cuando lo necesites.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="beta-section" id="beta">
+        <div class="beta-content">
+            <h2>Fase beta: ayúdanos a mejorar</h2>
+            <p>Estamos en una fase activa de pruebas. Descarga la app, pruébala en tu día a día y comparte tu feedback.</p>
+            <p>Tus comentarios nos ayudan a entender qué funciona, qué puede mejorar y qué características son más valiosas para ti.</p>
+            <div class="community-links">
+                <a href="https://forms.gle/K1TktDNLDBMpMgbH9" class="link-btn">Enviar feedback</a>
+                <a href="https://t.me/Equira_Beta" class="link-btn">Unirse a Telegram</a>
+                <a href="https://drive.google.com/drive/folders/1RhT4HHxfJ5kAhn5bf7wz9XAEztwJhaAa?usp=drive_link" class="link-btn">Descargar APK</a>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <a href="mailto:Equorapp@gmail.com">Equorapp@gmail.com</a>
+            </div>
+            <div class="footer-section">
+                <h4>Comunidad</h4>
+                <a href="https://t.me/Equira_Beta">Telegram</a>
+                <a href="https://www.instagram.com/equoraapp/">Instagram</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="privacy-policy.html">Política de privacidad</a>
+                <a href="terms.html">Términos de uso</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>Equora beta — Construido con enfoque en tu bienestar y privacidad</p>
+        </div>
+    </footer>
+</body>
+</html>
