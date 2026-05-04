@@ -583,6 +583,129 @@
             color: rgba(255,255,255,0.30);
         }
 
+        /* ── PLUS / FOUNDING SUPPORTERS ── */
+        .plus-section {
+            padding: 6rem 2rem;
+            background: var(--cream);
+        }
+
+        .plus-intro {
+            max-width: 600px;
+            margin: 0 auto 1rem;
+            background: var(--gold-light);
+            border: 1px solid rgba(200,161,101,0.30);
+            border-radius: var(--radius);
+            padding: 1.25rem 1.5rem;
+            font-size: 15px;
+            color: var(--text-body);
+            line-height: 1.75;
+            text-align: center;
+        }
+
+        .plus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2.5rem;
+            text-align: left;
+        }
+
+        .plus-card {
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            transition: transform 0.25s, box-shadow 0.25s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .plus-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .plus-card.featured {
+            border-color: var(--gold);
+            box-shadow: 0 4px 24px rgba(200,161,101,0.20);
+        }
+
+        .plus-card.featured::before {
+            content: 'Más popular';
+            position: absolute;
+            top: 14px; right: -30px;
+            background: var(--gold);
+            color: white;
+            font-size: 9px;
+            font-weight: 800;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            padding: 4px 40px;
+            transform: rotate(45deg);
+        }
+
+        .plus-tier-emoji { font-size: 34px; margin-bottom: 0.75rem; display: block; }
+
+        .plus-card h3 {
+            font-size: 18px;
+            font-weight: 800;
+            color: var(--brown);
+            margin-bottom: 0.25rem;
+        }
+
+        .plus-card .price {
+            font-size: 20px;
+            font-weight: 800;
+            color: var(--green);
+            margin-bottom: 1.25rem;
+        }
+
+        .plus-card ul {
+            list-style: none;
+            padding: 0;
+            margin-bottom: 1.5rem;
+        }
+
+        .plus-card ul li {
+            font-size: 14px;
+            color: var(--text-body);
+            padding: 0.4rem 0;
+            border-bottom: 1px solid var(--border);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            line-height: 1.5;
+        }
+
+        .plus-card ul li:last-child { border-bottom: none; }
+
+        .plus-cta {
+            display: block;
+            text-align: center;
+            padding: 12px 20px;
+            background: var(--brown);
+            color: white;
+            border-radius: 10px;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+            transition: all 0.2s;
+        }
+
+        .plus-cta:hover {
+            background: #3f2a1a;
+            transform: translateY(-2px);
+        }
+
+        .plus-note {
+            text-align: center;
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-top: 2rem;
+            font-style: italic;
+        }
+
         /* ── MOBILE ── */
         @media (max-width: 820px) {
             .footer-content {
@@ -668,6 +791,8 @@
         <nav>
             <a href="#features">Características</a>
             <a href="#security">Seguridad</a>
+            <a href="#plus">Plus</a>
+            <a href="#launch">Descargar</a>
             <a href="#contact">Contacto</a>
             <a href="https://wa.me/573226353331?text=Hola%20Equora%2C%20me%20interesa%20conocer%20m%C3%A1s" class="nav-cta">💬 WhatsApp</a>
         </nav>
@@ -764,6 +889,71 @@
 
         </section>
 
+        <!-- PLUS / FOUNDING SUPPORTERS -->
+        <section class="plus-section" id="plus">
+            <div class="section-inner">
+                <div class="section-label">Founding Supporters</div>
+                <h2 class="section-heading">Apoya Equora desde el principio</h2>
+                <p class="section-sub">Equora siempre será gratis en lo esencial — bienestar y privacidad para todos, sin excepciones. Muy pronto llegará Equora Plus, con herramientas adicionales para quienes quieran ir más lejos.</p>
+                <div class="plus-intro">
+                    Quienes apoyen ahora se convertirán en <strong>Founding Supporters</strong>: Plus incluido desde el primer día y descuento permanente en todas sus futuras suscripciones. <strong>Una sola vez, para siempre.</strong>
+                </div>
+                <div class="plus-grid">
+                    <div class="plus-card">
+                        <span class="plus-tier-emoji">🌱</span>
+                        <h3>Supporter</h3>
+                        <p class="price">Desde $5 USD</p>
+                        <ul>
+                            <li>✓ 6 meses de Equora Plus</li>
+                            <li>✓ 20% de descuento permanente</li>
+                            <li>✓ Insignia exclusiva en la app</li>
+                            <li>✓ Código de activación personalizado</li>
+                        </ul>
+                        <a href="https://wa.me/573226353331?text=Hola%2C%20quiero%20apoyar%20Equora%20como%20Supporter" class="plus-cta">Apoyar ahora</a>
+                    </div>
+                    <div class="plus-card featured">
+                        <span class="plus-tier-emoji">⭐</span>
+                        <h3>Founding Supporter</h3>
+                        <p class="price">Desde $10 USD</p>
+                        <ul>
+                            <li>✓ 1 año de Equora Plus</li>
+                            <li>✓ 30% de descuento permanente</li>
+                            <li>✓ Insignia exclusiva en la app</li>
+                            <li>✓ Código de activación personalizado</li>
+                        </ul>
+                        <a href="https://wa.me/573226353331?text=Hola%2C%20quiero%20apoyar%20Equora%20como%20Founding%20Supporter" class="plus-cta">Apoyar ahora</a>
+                    </div>
+                    <div class="plus-card">
+                        <span class="plus-tier-emoji">🏅</span>
+                        <h3>Founding Partner</h3>
+                        <p class="price">Desde $20 USD</p>
+                        <ul>
+                            <li>✓ 2 años de Equora Plus</li>
+                            <li>✓ 40% de descuento permanente</li>
+                            <li>✓ Insignia exclusiva en la app</li>
+                            <li>✓ Código de activación personalizado</li>
+                        </ul>
+                        <a href="https://wa.me/573226353331?text=Hola%2C%20quiero%20apoyar%20Equora%20como%20Founding%20Partner" class="plus-cta">Apoyar ahora</a>
+                    </div>
+                </div>
+                <p class="plus-note">Los descuentos no expiran — aunque llegue la versión de suscripción, tu beneficio permanece.</p>
+            </div>
+        </section>
+
+        <!-- LANZAMIENTO -->
+        <section class="beta-section" id="launch">
+            <div class="beta-card">
+                <div style="display:inline-block;padding:5px 16px;background:rgba(255,255,255,0.15);border:1px solid rgba(255,255,255,0.30);border-radius:100px;font-size:11px;font-weight:700;color:white;letter-spacing:1px;text-transform:uppercase;margin-bottom:1.25rem;">🚀 Próximamente</div>
+                <h2>Equora llega a Google Play</h2>
+                <p>Después de meses de desarrollo, pruebas reales y ajustes junto a la comunidad, Equora está lista para su lanzamiento oficial en Android.</p>
+                <p style="font-size:14px;opacity:0.75;margin-top:0.5rem;">iOS está en desarrollo técnico — pronto también disponible en App Store.</p>
+                <div class="community-links">
+                    <a href="https://www.instagram.com/equoraapp/" class="link-btn">📱 Síguenos para el anuncio</a>
+                    <a href="https://wa.me/573226353331?text=Hola%2C%20quisiera%20saber%20cu%C3%A1ndo%20lanza%20Equora%20en%20Google%20Play" class="link-btn">💬 Notificarme por WhatsApp</a>
+                </div>
+            </div>
+        </section>
+
     </main>
 
     <footer id="contact">
@@ -791,7 +981,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <span>© 2025 Equora — Construido con enfoque en tu bienestar y privacidad</span>
+            <span>© 2026 Equora — Construido con enfoque en tu bienestar y privacidad</span>
             <span>Hecho con cariño</span>
         </div>
     </footer>
