@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Equora Wellness — Tu bienestar emocional, en tu bolsillo y en privado</title>
+    <meta name="description" content="Registra cómo te sientes cada día, lleva el control de tu medicación y lleva un reporte a tu próxima consulta. Gratis, en español y 100% privado.">
+    <meta property="og:title" content="Equora — Tu bienestar emocional, en tu bolsillo">
+    <meta property="og:description" content="Registro diario, medicación, momentos difíciles e historial. 100% privado, gratis en lo esencial, nativa en español.">
+    <meta property="og:image" content="https://equorawellness.com/logo-icon.svg">
+    <link rel="icon" type="image/svg+xml" href="logo-icon.svg">
+    <style>
+        :root {
+            --brown:        #5A3E2B;
+            --green:        #5E7F68;
+            --green-dark:   #496655;
+            --gold:         #C8A165;
+            --cream:        #F6EFE6;
+            --beige:        #EDE3D6;
+            --terracota:    #C97A57;
+            --green-light:  rgba(94, 127, 104, 0.10);
+            --gold-light:   rgba(200, 161, 101, 0.12);
+            --card-bg:      #FDFAF6;
+            --text-heading: #5A3E2B;
+            --text-body:    #6B4E38;
+            --text-muted:   #9C7A60;
+            --border:       rgba(90, 62, 43, 0.12);
+            --shadow:       0 2px 16px rgba(90, 62, 43, 0.07);
+            --shadow-hover: 0 8px 32px rgba(90, 62, 43, 0.14);
+            --radius:       14px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: var(--text-body);
+            background: var(--beige);
+            line-height: 1.7;
+        }
+
+        /* ── HEADER ── */
+        header {
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            background: rgba(246, 239, 230, 0.93);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            display: flex; align-items: center; gap: 0.6rem;
+            font-size: 20px; font-weight: 700; color: var(--brown);
+            text-decoration: none; letter-spacing: -0.3px;
+        }
+        .logo img { width: 34px; height: 34px; border-radius: 9px; box-shadow: 0 2px 8px rgba(90,62,43,0.15); }
+
+        .nav-toggle { display: none; }
+        .nav-toggle-label {
+            display: none; flex-direction: column; justify-content: center;
+            gap: 5px; cursor: pointer; width: 30px; height: 30px; padding: 3px;
+        }
+        .nav-toggle-label span { display: block; height: 2px; background: var(--brown); border-radius: 2px; transition: all 0.25s; transform-origin: center; }
+        .nav-toggle:checked + .nav-toggle-label span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-toggle:checked + .nav-toggle-label span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .nav-toggle:checked + .nav-toggle-label span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+        nav { display: flex; gap: 1.75rem; align-items: center; }
+        nav a { text-decoration: none; color: var(--text-body); font-size: 14px; font-weight: 500; transition: color 0.2s; }
+        nav a:hover { color: var(--brown); }
+        nav a.active { color: var(--green); font-weight: 700; }
+        .nav-cta { padding: 8px 20px; background: var(--brown); color: white !important; border-radius: 8px; font-weight: 600; transition: background 0.2s, transform 0.2s; }
+        .nav-cta:hover { background: #3f2a1a !important; transform: translateY(-1px); }
+
+        /* ── HERO ── */
+        .hero {
+            padding: 5.5rem 2rem 4.5rem;
+            text-align: center;
+            background: var(--beige);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -160px; left: 50%;
+            transform: translateX(-50%);
+            width: 900px; height: 900px;
+            background: radial-gradient(circle, rgba(94,127,104,0.10) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .hero-icon {
+            width: 100px; height: 100px; border-radius: 24px;
+            box-shadow: 0 16px 48px rgba(90,62,43,0.18), 0 4px 12px rgba(0,0,0,0.08);
+            margin: 0 auto 1.5rem; display: block;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            padding: 5px 16px;
+            background: var(--green-light);
+            border: 1px solid rgba(94,127,104,0.30);
+            border-radius: 100px;
+            font-size: 11px; font-weight: 800;
+            color: var(--green-dark);
+            letter-spacing: 1px; text-transform: uppercase;
+            margin-bottom: 1.25rem;
+        }
+
+        .hero h1 {
+            font-size: clamp(34px, 6vw, 54px);
+            font-weight: 800; color: var(--brown);
+            letter-spacing: -1px; line-height: 1.10;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero h1 em { color: var(--green); font-style: italic; }
+
+        .hero .tagline {
+            font-size: clamp(15px, 2.2vw, 18px);
+            color: var(--text-body); max-width: 500px;
+            margin: 1rem auto 0;
+        }
+
+        .cta-buttons {
+            display: flex; gap: 1rem; justify-content: center;
+            flex-wrap: wrap; margin-top: 2.5rem; margin-bottom: 3rem;
+        }
+
+        .btn {
+            padding: 14px 30px; border-radius: 10px; border: none;
+            font-size: 15px; cursor: pointer; text-decoration: none;
+            display: inline-flex; align-items: center; gap: 8px;
+            transition: all 0.22s; font-weight: 600; letter-spacing: -0.1px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(145deg, var(--green), var(--green-dark));
+            color: white; box-shadow: 0 4px 18px rgba(94,127,104,0.30);
+        }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 8px 28px rgba(94,127,104,0.42); }
+
+        .btn-secondary {
+            background: white; color: var(--brown);
+            border: 1.5px solid rgba(90,62,43,0.30);
+        }
+        .btn-secondary:hover { background: var(--cream); border-color: var(--brown); transform: translateY(-3px); }
+
+        /* ── QUOTE ── */
+        .quote-section {
+            padding: 2rem 2rem 0;
+            background: var(--beige);
+        }
+
+        .quote-block {
+            max-width: 700px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            background: rgba(200,161,101,0.10);
+            border-left: 3px solid var(--gold);
+            border-radius: 0 12px 12px 0;
+            font-size: clamp(14px, 1.8vw, 16px);
+            font-style: italic;
+            color: var(--text-body);
+            line-height: 1.75;
+        }
+
+        .quote-block strong { color: var(--brown); font-style: normal; }
+
+        /* ── SHARED ── */
+        section { scroll-margin-top: 80px; }
+        .section-inner { max-width: 1100px; margin: 0 auto; text-align: center; }
+        .section-label { display: inline-block; font-size: 10px; font-weight: 800; letter-spacing: 1.8px; text-transform: uppercase; color: var(--green); margin-bottom: 0.6rem; }
+        .section-heading { font-size: clamp(26px, 4vw, 36px); font-weight: 800; color: var(--brown); margin-bottom: 0.75rem; letter-spacing: -0.5px; line-height: 1.2; }
+        .section-sub { font-size: 16px; color: var(--text-body); max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.7; }
+
+        /* ── FEATURES ── */
+        .features-section {
+            padding: 5.5rem 2rem;
+            background: var(--cream);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.25rem;
+            text-align: left;
+        }
+
+        .feature-card {
+            padding: 1.75rem;
+            border-radius: var(--radius);
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .feature-card:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+
+        .feature-icon-wrap {
+            width: 50px; height: 50px; border-radius: 14px;
+            background: var(--green-light);
+            display: flex; align-items: center; justify-content: center;
+            font-size: 22px; margin-bottom: 1.2rem;
+        }
+
+        .feature-card h3 { font-size: 16px; font-weight: 700; margin-bottom: 0.5rem; color: var(--brown); }
+        .feature-card p { font-size: 14px; color: var(--text-body); line-height: 1.75; }
+
+        /* ── ORIGEN ── */
+        .origin-section {
+            padding: 5rem 2rem;
+            background: var(--brown);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .origin-section::before {
+            content: '';
+            position: absolute;
+            top: -100px; left: 50%;
+            transform: translateX(-50%);
+            width: 600px; height: 600px;
+            background: radial-gradient(circle, rgba(200,161,101,0.12) 0%, transparent 65%);
+            pointer-events: none;
+        }
+
+        .origin-section .section-label { color: var(--gold); opacity: 0.8; }
+
+        .origin-section h2 {
+            font-size: clamp(26px, 4vw, 38px);
+            font-weight: 800; color: white;
+            letter-spacing: -0.5px; line-height: 1.2;
+            margin-bottom: 1.25rem;
+        }
+
+        .origin-section p {
+            font-size: clamp(15px, 2vw, 17px);
+            color: rgba(255,255,255,0.75);
+            max-width: 600px; margin: 0 auto 1rem;
+            line-height: 1.8;
+        }
+
+        .origin-section p strong { color: var(--gold); }
+
+        /* ── PRIVACIDAD ── */
+        .privacy-section {
+            padding: 5rem 2rem;
+            background: var(--beige);
+        }
+
+        .privacy-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.25rem;
+            text-align: left;
+        }
+
+        .privacy-item {
+            padding: 1.75rem;
+            background: var(--card-bg);
+            border-radius: var(--radius);
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+            transition: transform 0.25s, box-shadow 0.25s;
+            position: relative; overflow: hidden;
+        }
+
+        .privacy-item::after {
+            content: '';
+            position: absolute; top: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--gold), var(--terracota));
+        }
+
+        .privacy-item:hover { transform: translateY(-5px); box-shadow: var(--shadow-hover); }
+        .privacy-icon { font-size: 26px; margin-bottom: 1rem; display: block; }
+        .privacy-item h3 { font-size: 15px; font-weight: 700; margin-bottom: 0.5rem; color: var(--brown); }
+        .privacy-item p { font-size: 13px; color: var(--text-body); line-height: 1.75; }
+
+        /* ── DESCARGA ── */
+        .download-section {
+            padding: 5rem 2rem;
+            background: var(--cream);
+        }
+
+        .download-card {
+            max-width: 740px;
+            margin: 0 auto;
+            background: linear-gradient(145deg, var(--brown), var(--terracota));
+            border-radius: 24px;
+            padding: 3.5rem 3rem;
+            text-align: center;
+            box-shadow: 0 20px 60px rgba(90,62,43,0.25);
+            position: relative; overflow: hidden;
+        }
+
+        .download-card::before {
+            content: '';
+            position: absolute;
+            top: -80px; right: -80px;
+            width: 300px; height: 300px;
+            background: rgba(255,255,255,0.06);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        .download-card h2 {
+            font-size: clamp(24px, 4vw, 34px);
+            font-weight: 800; color: white;
+            margin-bottom: 0.75rem; letter-spacing: -0.5px;
+        }
+
+        .download-card p {
+            font-size: 15px;
+            color: rgba(255,255,255,0.80);
+            margin-bottom: 0.5rem; line-height: 1.7;
+            max-width: 480px; margin-left: auto; margin-right: auto;
+        }
+
+        .download-buttons {
+            display: flex; gap: 1rem; justify-content: center;
+            flex-wrap: wrap; margin-top: 2rem;
+        }
+
+        .btn-white {
+            background: white; color: var(--brown);
+            box-shadow: 0 4px 14px rgba(0,0,0,0.10);
+        }
+        .btn-white:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.14); }
+
+        .free-note {
+            margin-top: 1.5rem;
+            font-size: 13px;
+            color: rgba(255,255,255,0.60);
+        }
+
+        /* ── DISCLAIMER ── */
+        .disclaimer-bar {
+            background: rgba(200,161,101,0.10);
+            border-top: 1px solid rgba(200,161,101,0.20);
+            padding: 1rem 2rem;
+            text-align: center;
+            font-size: 12px;
+            color: var(--text-muted);
+        }
+
+        /* ── FOOTER ── */
+        footer { padding: 4rem 2rem 2rem; background: var(--brown); }
+        .footer-content {
+            max-width: 1160px; margin: 0 auto;
+            display: grid; grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 2.5rem; padding-bottom: 2.5rem;
+            border-bottom: 1px solid rgba(255,255,255,0.10);
+        }
+        .footer-logo { display: flex; align-items: center; gap: 0.6rem; font-size: 18px; font-weight: 700; color: white; letter-spacing: -0.3px; margin-bottom: 0.85rem; }
+        .footer-logo img { width: 30px; height: 30px; border-radius: 8px; }
+        .footer-brand p { font-size: 13px; color: rgba(255,255,255,0.50); max-width: 220px; line-height: 1.7; }
+        .footer-section h4 { font-size: 10px; font-weight: 800; margin-bottom: 1.2rem; text-transform: uppercase; letter-spacing: 1.2px; color: rgba(255,255,255,0.40); }
+        .footer-section a { display: block; font-size: 14px; color: rgba(255,255,255,0.60); text-decoration: none; margin-bottom: 0.65rem; transition: color 0.2s; }
+        .footer-section a:hover { color: white; }
+        .footer-bottom { max-width: 1160px; margin: 2rem auto 0; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 0.5rem; font-size: 12px; color: rgba(255,255,255,0.30); }
+
+        /* ── MOBILE ── */
+        @media (max-width: 820px) {
+            .footer-content { grid-template-columns: 1fr 1fr; }
+            .footer-brand { grid-column: 1 / -1; }
+            .footer-brand p { max-width: 100%; }
+        }
+
+        @media (max-width: 640px) {
+            .nav-toggle-label { display: flex; }
+            nav { display: none; flex-direction: column; align-items: flex-start; gap: 0; width: 100%; padding: 0.75rem 0 0.25rem; border-top: 1px solid var(--border); }
+            nav a { width: 100%; padding: 0.7rem 0; border-bottom: 1px solid var(--border); }
+            .nav-cta { margin-top: 0.75rem; text-align: center; border-radius: 8px; padding: 10px 20px; border-bottom: none; width: 100%; justify-content: center; display: flex; }
+            .nav-toggle:checked ~ nav { display: flex; }
+
+            .hero { padding: 3.5rem 1.25rem 3rem; }
+            .cta-buttons { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 300px; justify-content: center; }
+            .download-buttons { flex-direction: column; align-items: center; }
+            .download-card { padding: 2.5rem 1.5rem; }
+            .footer-content { grid-template-columns: 1fr; }
+            .footer-brand { grid-column: auto; }
+            footer { padding: 3rem 1.25rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">
+            <img src="logo-icon.svg" alt="Equora">
+            Equora
+        </a>
+        <input type="checkbox" id="nav-toggle" class="nav-toggle">
+        <label for="nav-toggle" class="nav-toggle-label" aria-label="Abrir menú">
+            <span></span><span></span><span></span>
+        </label>
+        <nav>
+            <a href="index.html">Inicio</a>
+            <a href="para-ti.html" class="active">Para usuarios</a>
+            <a href="para-profesionales.html">Para profesionales</a>
+            <a href="index.html#plus">Founding Supporters</a>
+            <a href="https://play.google.com/store/apps/details?id=com.equorawellness.app" target="_blank" class="nav-cta">▶ Descargar gratis</a>
+        </nav>
+    </header>
+
+    <main>
+
+        <!-- HERO -->
+        <section class="hero">
+            <img src="logo-icon.svg" alt="Equora Wellness" class="hero-icon">
+            <div class="hero-badge">🌱 Disponible en Android e iOS · Nativa en español</div>
+            <h1>Tu bienestar emocional,<br><em>en tu bolsillo y en privado.</em></h1>
+            <p class="tagline">Registra cómo te sientes, lleva el control de tu medicación y llega a tu próxima consulta con datos reales — no con memoria aproximada.</p>
+            <div class="cta-buttons">
+                <a href="https://play.google.com/store/apps/details?id=com.equorawellness.app" target="_blank" class="btn btn-primary">
+                    ▶ Descargar en Android
+                </a>
+                <a href="https://apps.apple.com/us/app/equora-wellness/id6766343717" target="_blank" class="btn btn-secondary">
+                     Descargar en iOS
+                </a>
+            </div>
+        </section>
+
+        <!-- QUOTE -->
+        <section class="quote-section">
+            <div class="quote-block">
+                <strong>"¿Cómo te sentiste la semana pasada?"</strong> — esa pregunta en consulta que nunca puedes responder bien.
+                Equora la responde por ti, con datos reales de tus propios registros.
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="features-section" id="features">
+            <div class="section-inner">
+                <div class="section-label">Funcionalidades</div>
+                <h2 class="section-heading">Todo lo que Equora hace por ti</h2>
+                <p class="section-sub">Diseñada para acompañar tu proceso — no para reemplazar a tu terapeuta o médico.</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon-wrap">📊</div>
+                        <h3>Registro diario</h3>
+                        <p>Ansiedad, energía, sueño, emoción y más — en menos de 3 minutos al día. Con el tiempo, los datos cuentan la historia que tu memoria no puede.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-wrap">💊</div>
+                        <h3>Medicación sin olvidos</h3>
+                        <p>Recordatorios accionables y registro de adherencia día a día. Llevas el dato exacto a consulta — no un "creo que sí los tomé".</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-wrap">🌿</div>
+                        <h3>Momentos difíciles</h3>
+                        <p>Respiración guiada, grounding y técnicas de calma disponibles cuando más las necesitas. Sin buscar, sin esperar.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-wrap">📈</div>
+                        <h3>Tu historial y patrones</h3>
+                        <p>Visualiza cómo evolucionan tus métricas con el tiempo. Descubre si el sueño afecta tu ansiedad, si el ejercicio mejora tu energía.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-wrap">📄</div>
+                        <h3>Reporte para tu médico</h3>
+                        <p>Genera un PDF con tus promedios, gráficas y adherencia para llevarlo a tu próxima consulta. La información que tu profesional necesita, lista.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon-wrap">🔒</div>
+                        <h3>100% privado, siempre</h3>
+                        <p>Tus datos solo viven en tu teléfono. Sin servidores, sin cuentas externas, sin nube. Lo que registras es tuyo y de nadie más.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ORIGEN -->
+        <section class="origin-section" id="origen">
+            <div class="section-label">La historia detrás</div>
+            <h2>La construyó alguien que la necesitaba</h2>
+            <p>
+                Equora no nació en una oficina tecnológica. La construyó un paciente en tratamiento activo,
+                con su terapeuta y psiquiatra como primeros testers.
+            </p>
+            <p>
+                No es una app diseñada por un equipo que estudió el problema desde afuera.
+                Es una herramienta pensada <strong>desde adentro</strong> — desde la consulta, desde el registro diario,
+                desde la necesidad real de entender qué está pasando entre sesiones.
+            </p>
+            <p style="font-size: 14px; color: rgba(255,255,255,0.50); margin-top: 1.5rem;">
+                Esa autenticidad es la diferencia que ninguna app grande puede replicar.
+            </p>
+        </section>
+
+        <!-- PRIVACIDAD -->
+        <section class="privacy-section" id="privacidad">
+            <div class="section-inner">
+                <div class="section-label">Privacidad</div>
+                <h2 class="section-heading">Tus datos son tuyos. Siempre.</h2>
+                <p class="section-sub">Diseñada desde cero para que tu información de salud mental nunca salga de tu dispositivo.</p>
+                <div class="privacy-grid">
+                    <div class="privacy-item">
+                        <span class="privacy-icon">📱</span>
+                        <h3>Todo local</h3>
+                        <p>Tus registros viven en tu teléfono. Sin servidores, sin nube, sin sincronización automática a ningún servicio externo.</p>
+                    </div>
+                    <div class="privacy-item">
+                        <span class="privacy-icon">🔐</span>
+                        <h3>Sin cuentas</h3>
+                        <p>No necesitas crear una cuenta, no damos tu correo a nadie, no recopilamos datos de uso para venderlos.</p>
+                    </div>
+                    <div class="privacy-item">
+                        <span class="privacy-icon">🚫</span>
+                        <h3>Sin anuncios</h3>
+                        <p>Nunca habrá publicidad dentro de Equora. El modelo de sostenibilidad es Equora Plus — no tus datos.</p>
+                    </div>
+                    <div class="privacy-item">
+                        <span class="privacy-icon">💚</span>
+                        <h3>Gratis en lo esencial</h3>
+                        <p>El registro diario, la medicación, los momentos de crisis y el historial son gratis siempre. Nunca un paywall en un momento difícil.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DESCARGA -->
+        <section class="download-section" id="descarga">
+            <div class="download-card">
+                <h2>Descárgala gratis hoy</h2>
+                <p>Android en Google Play · iOS en App Store</p>
+                <p>Nativa en español · Sin cuenta · Sin servidores</p>
+                <div class="download-buttons">
+                    <a href="https://play.google.com/store/apps/details?id=com.equorawellness.app" target="_blank" class="btn btn-white">
+                        ▶ Google Play
+                    </a>
+                    <a href="https://apps.apple.com/us/app/equora-wellness/id6766343717" target="_blank" class="btn btn-white">
+                         App Store
+                    </a>
+                </div>
+                <p class="free-note">Lo esencial es gratis, siempre. Sin comprometer tu privacidad.</p>
+            </div>
+        </section>
+
+    </main>
+
+    <div class="disclaimer-bar">
+        Equora complementa tu proceso con profesionales de salud — no lo reemplaza. Si estás en crisis, contacta a tu médico o línea de emergencias.
+    </div>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand footer-section">
+                <div class="footer-logo">
+                    <img src="logo-icon.svg" alt="Equora">
+                    Equora
+                </div>
+                <p>Tu espacio seguro para registrar, entender y cuidar tu bienestar mental.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <a href="https://wa.me/573226353331">📱 WhatsApp</a>
+                <a href="mailto:Equorapp@gmail.com">✉️ Equorapp@gmail.com</a>
+            </div>
+            <div class="footer-section">
+                <h4>Redes</h4>
+                <a href="https://www.instagram.com/equoraapp/">Instagram</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="privacy-policy.html">Política de privacidad</a>
+                <a href="terms.html">Términos de uso</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Equora — Construido con enfoque en tu bienestar y privacidad</span>
+            <span>Hecho con cariño</span>
+        </div>
+    </footer>
+
+</body>
+</html>
