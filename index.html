@@ -704,6 +704,45 @@
             background: var(--cream);
         }
 
+        .tiers-region {
+            margin-top: 2.5rem;
+            text-align: left;
+        }
+
+        .tiers-region-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 0.4rem;
+        }
+
+        .tiers-region-header .region-flag {
+            font-size: 22px;
+            line-height: 1;
+        }
+
+        .tiers-region-header h4 {
+            font-size: 13px;
+            font-weight: 800;
+            color: var(--brown);
+            letter-spacing: 0.2px;
+            text-transform: uppercase;
+        }
+
+        .tiers-region-desc {
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: 1.25rem;
+            padding-left: 32px;
+            line-height: 1.6;
+        }
+
+        .tiers-region-divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            margin: 2.5rem 0;
+        }
+
         .plus-intro {
             max-width: 600px;
             margin: 0 auto 1rem;
@@ -1169,47 +1208,108 @@
                     </div>
                 </div>
 
-                <div class="plus-grid">
-                    <div class="plus-card">
-                        <span class="plus-tier-emoji">🌱</span>
-                        <h3>Supporter</h3>
-                        <p class="price">Desde $5 USD</p>
-                        <ul>
-                            <li>✓ 6 meses de Equora Plus</li>
-                            <li>✓ Acceso a todas las features actuales</li>
-                            <li>✓ Acceso a todo lo que viene en octubre</li>
-                            <li>✓ 20% de descuento permanente</li>
-                            <li>✓ Insignia Founding Supporter en la app</li>
-                        </ul>
-                        <a href="https://wa.me/573226353331?text=Hola%2C%20quiero%20apoyar%20Equora%20como%20Supporter" class="plus-cta">Apoyar ahora</a>
+                <!-- ── Colombia ── -->
+                <div class="tiers-region">
+                    <div class="tiers-region-header">
+                        <span class="region-flag">🇨🇴</span>
+                        <h4>Si estás en Colombia</h4>
                     </div>
-                    <div class="plus-card featured">
-                        <span class="plus-tier-emoji">⭐</span>
-                        <h3>Founding Supporter</h3>
-                        <p class="price">Desde $10 USD</p>
-                        <ul>
-                            <li>✓ 1 año de Equora Plus</li>
-                            <li>✓ Acceso a todas las features actuales</li>
-                            <li>✓ Acceso a todo lo que viene en octubre</li>
-                            <li>✓ 30% de descuento permanente</li>
-                            <li>✓ Insignia Founding Supporter en la app</li>
-                        </ul>
-                        <a href="https://wa.me/573226353331?text=Hola%2C%20quiero%20apoyar%20Equora%20como%20Founding%20Supporter" class="plus-cta">Apoyar ahora</a>
-                    </div>
-                    <div class="plus-card">
-                        <span class="plus-tier-emoji">🏅</span>
-                        <h3>Founding Partner</h3>
-                        <p class="price">Desde $20 USD</p>
-                        <ul>
-                            <li>✓ 2 años de Equora Plus</li>
-                            <li>✓ Acceso a todas las features actuales</li>
-                            <li>✓ Acceso a todo lo que viene en octubre</li>
-                            <li>✓ 40% de descuento permanente</li>
-                            <li>✓ Insignia Founding Supporter en la app</li>
-                        </ul>
-                        <a href="https://wa.me/573226353331?text=Hola%2C%20quiero%20apoyar%20Equora%20como%20Founding%20Partner" class="plus-cta">Apoyar ahora</a>
+                    <p class="tiers-region-desc">Paga en pesos colombianos con Bold — seguro y sin comisiones adicionales para ti.</p>
+                    <div class="plus-grid">
+                        <div class="plus-card">
+                            <span class="plus-tier-emoji">🌱</span>
+                            <h3>Supporter</h3>
+                            <p class="price">$20.000 COP</p>
+                            <ul>
+                                <li>✓ 6 meses de Equora Plus</li>
+                                <li>✓ Acceso a todas las features actuales</li>
+                                <li>✓ Acceso a todo lo que viene en octubre</li>
+                                <li>✓ 20% de descuento permanente</li>
+                                <li>✓ Insignia Founding Supporter en la app</li>
+                            </ul>
+                            <a href="https://checkout.bold.co/payment/LNK_BELGE793UE" target="_blank" class="plus-cta">Apoyar ahora</a>
+                        </div>
+                        <div class="plus-card featured">
+                            <span class="plus-tier-emoji">⭐</span>
+                            <h3>Founding Supporter</h3>
+                            <p class="price">$40.000 COP</p>
+                            <ul>
+                                <li>✓ 1 año de Equora Plus</li>
+                                <li>✓ Acceso a todas las features actuales</li>
+                                <li>✓ Acceso a todo lo que viene en octubre</li>
+                                <li>✓ 30% de descuento permanente</li>
+                                <li>✓ Insignia Founding Supporter en la app</li>
+                            </ul>
+                            <a href="https://checkout.bold.co/payment/LNK_44TC22NPDV" target="_blank" class="plus-cta">Apoyar ahora</a>
+                        </div>
+                        <div class="plus-card">
+                            <span class="plus-tier-emoji">🏅</span>
+                            <h3>Founding Partner</h3>
+                            <p class="price">$80.000 COP</p>
+                            <ul>
+                                <li>✓ 2 años de Equora Plus</li>
+                                <li>✓ Acceso a todas las features actuales</li>
+                                <li>✓ Acceso a todo lo que viene en octubre</li>
+                                <li>✓ 40% de descuento permanente</li>
+                                <li>✓ Insignia Founding Supporter en la app</li>
+                            </ul>
+                            <a href="https://checkout.bold.co/payment/LNK_PRP8IQD27U" target="_blank" class="plus-cta">Apoyar ahora</a>
+                        </div>
                     </div>
                 </div>
+
+                <hr class="tiers-region-divider">
+
+                <!-- ── Internacional ── -->
+                <div class="tiers-region">
+                    <div class="tiers-region-header">
+                        <span class="region-flag">🌍</span>
+                        <h4>Si estás fuera de Colombia</h4>
+                    </div>
+                    <p class="tiers-region-desc">Apoya desde cualquier parte del mundo a través de Ko-fi — pago seguro en USD.</p>
+                    <div class="plus-grid">
+                        <div class="plus-card">
+                            <span class="plus-tier-emoji">🌱</span>
+                            <h3>Supporter</h3>
+                            <p class="price">Desde $5 USD</p>
+                            <ul>
+                                <li>✓ 6 meses de Equora Plus</li>
+                                <li>✓ Acceso a todas las features actuales</li>
+                                <li>✓ Acceso a todo lo que viene en octubre</li>
+                                <li>✓ 20% de descuento permanente</li>
+                                <li>✓ Insignia Founding Supporter en la app</li>
+                            </ul>
+                            <a href="https://ko-fi.com/summary/8ff2c7a6-1d35-468d-b443-a3fea6df1b0c" target="_blank" class="plus-cta">Apoyar ahora</a>
+                        </div>
+                        <div class="plus-card featured">
+                            <span class="plus-tier-emoji">⭐</span>
+                            <h3>Founding Supporter</h3>
+                            <p class="price">Desde $10 USD</p>
+                            <ul>
+                                <li>✓ 1 año de Equora Plus</li>
+                                <li>✓ Acceso a todas las features actuales</li>
+                                <li>✓ Acceso a todo lo que viene en octubre</li>
+                                <li>✓ 30% de descuento permanente</li>
+                                <li>✓ Insignia Founding Supporter en la app</li>
+                            </ul>
+                            <a href="https://ko-fi.com/summary/1059b8eb-41ce-4c48-8318-3060bb1f8890" target="_blank" class="plus-cta">Apoyar ahora</a>
+                        </div>
+                        <div class="plus-card">
+                            <span class="plus-tier-emoji">🏅</span>
+                            <h3>Founding Partner</h3>
+                            <p class="price">Desde $20 USD</p>
+                            <ul>
+                                <li>✓ 2 años de Equora Plus</li>
+                                <li>✓ Acceso a todas las features actuales</li>
+                                <li>✓ Acceso a todo lo que viene en octubre</li>
+                                <li>✓ 40% de descuento permanente</li>
+                                <li>✓ Insignia Founding Supporter en la app</li>
+                            </ul>
+                            <a href="https://ko-fi.com/summary/27e8683d-58a9-489e-906b-3d7d0226b48e" target="_blank" class="plus-cta">Apoyar ahora</a>
+                        </div>
+                    </div>
+                </div>
+
                 <p class="plus-note">Los descuentos no expiran — aunque llegue la versión de suscripción, tu beneficio permanece. Founding Supporters entran primero, pagan menos, siempre.</p>
             </div>
         </section>
