@@ -208,6 +208,12 @@
             font-size: 16px; color: var(--text-body);
             max-width: 520px; margin: 0 auto 2.5rem; line-height: 1.7;
         }
+        .thanks-section { padding: 5rem 2rem; background: var(--beige); }
+        .thanks-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 1.5rem; margin-top: 2.5rem; }
+        .thanks-card { background: var(--cream); border: 1px solid rgba(90, 62, 43, 0.10); border-radius: 16px; padding: 1.75rem 2rem; display: flex; flex-direction: column; align-items: center; gap: 0.75rem; min-width: 200px; transition: transform 0.2s, box-shadow 0.2s; text-decoration: none; }
+        .thanks-card:hover { transform: translateY(-3px); box-shadow: 0 10px 30px rgba(42, 20, 8, 0.12); }
+        .thanks-card img { width: 180px; max-width: 100%; }
+        .thanks-card span { font-size: 12px; color: var(--brown); opacity: 0.65; letter-spacing: 0.3px; }
 
         /* ── METRICS ── */
         .metrics-section {
@@ -638,9 +644,21 @@
                     <a href="mailto:Equorapp@gmail.com?subject=Programa%20Embajador%20Equora" class="btn btn-brown">
                         ✉️ Equorapp@gmail.com
                     </a>
-                    <p class="contact-info">
-                        O por WhatsApp: <a href="https://wa.me/573226353331?text=Hola%20Equora%2C%20me%20interesa%20el%20programa%20de%20embajadores%20para%20profesionales">+57 322 635 3331</a>
-                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- MURO DE AGRADECIMIENTOS -->
+        <section class="thanks-section" id="apoyos">
+            <div class="section-inner">
+                <div class="section-label">Apoyado por · Backed by</div>
+                <h2 class="section-heading">Gracias a quienes lo hacen posible</h2>
+                <p class="section-sub">Equora crece gracias a las personas y organizaciones que creen en un proyecto nacido desde la experiencia real de un paciente.</p>
+                <div class="thanks-grid">
+                    <a class="thanks-card" href="https://elevenlabs.io/startup-grants" target="_blank" rel="noopener">
+                        <img src="https://eleven-public-cdn.elevenlabs.io/payloadcms/pwsc4vchsqt-ElevenLabsGrants.webp" alt="ElevenLabs Grants">
+                        <span>Startup Grant</span>
+                    </a>
                 </div>
             </div>
         </section>
@@ -662,12 +680,13 @@
             </div>
             <div class="footer-section">
                 <h4>Contacto</h4>
-                <a href="https://wa.me/573226353331">📱 WhatsApp</a>
                 <a href="mailto:Equorapp@gmail.com">✉️ Equorapp@gmail.com</a>
             </div>
             <div class="footer-section">
                 <h4>Redes</h4>
                 <a href="https://www.instagram.com/equoraapp/">Instagram</a>
+                <a href="https://www.facebook.com/profile.php?id=61590824665190">Facebook</a>
+                <a href="https://www.tiktok.com/@equora_wellness">TikTok</a>
             </div>
             <div class="footer-section">
                 <h4>Legal</h4>
