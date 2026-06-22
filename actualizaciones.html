@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<!--
+  Changelog público de Equora.
+  Regla: cada versión se publica aquí solo cuando ya está LIVE en tiendas.
+  v1.7 publicada el 22/06/2026 (Android live; iOS aún en revisión en esa fecha).
+  Al agregar una versión nueva: ponerla como primer <article class="version"> y
+  publicar solo cuando esté live. Ver memoria project_website_actualizaciones.
+-->
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Actualizaciones — Equora Wellness</title>
+    <meta name="description" content="Novedades y mejoras de Equora Wellness, versión por versión. Conoce las nuevas funciones para registrar tu bienestar, entender tus patrones y cuidar tu proceso.">
+    <meta property="og:title" content="Actualizaciones — Equora Wellness">
+    <meta property="og:description" content="Las novedades de cada versión de Equora, contadas con calma.">
+    <meta property="og:image" content="https://equorawellness.com/logo-icon.svg">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml" href="logo-icon.svg">
+    <style>
+        :root {
+            --brown:        #5A3E2B;
+            --green:        #5E7F68;
+            --green-dark:   #496655;
+            --gold:         #C8A165;
+            --cream:        #F6EFE6;
+            --beige:        #EDE3D6;
+            --terracota:    #C97A57;
+            --green-light:  rgba(94, 127, 104, 0.10);
+            --gold-light:   rgba(200, 161, 101, 0.12);
+            --card-bg:      #FDFAF6;
+            --text-heading: #5A3E2B;
+            --text-body:    #6B4E38;
+            --text-muted:   #9C7A60;
+            --border:       rgba(90, 62, 43, 0.12);
+            --shadow:       0 2px 16px rgba(90, 62, 43, 0.07);
+            --shadow-hover: 0 8px 32px rgba(90, 62, 43, 0.14);
+            --radius:       14px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: var(--text-body);
+            background: var(--beige);
+            line-height: 1.7;
+        }
+
+        header {
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            background: rgba(246, 239, 230, 0.93);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-size: 20px;
+            font-weight: 700;
+            color: var(--brown);
+            text-decoration: none;
+        }
+        .logo img { width: 34px; height: 34px; }
+        nav { display: flex; gap: 1.6rem; align-items: center; }
+        nav a {
+            color: var(--text-body);
+            text-decoration: none;
+            font-size: 15px;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav a:hover { color: var(--brown); }
+
+        main { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
+
+        .hero {
+            text-align: center;
+            padding: 3.5rem 0 2.5rem;
+        }
+        .hero-icon { width: 64px; height: 64px; margin-bottom: 1rem; }
+        .hero h1 {
+            font-size: clamp(1.9rem, 5vw, 2.6rem);
+            color: var(--text-heading);
+            line-height: 1.2;
+            margin-bottom: 0.8rem;
+        }
+        .hero p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+            max-width: 520px;
+            margin: 0 auto;
+        }
+
+        .version {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-left: 4px solid var(--gold);
+            border-radius: var(--radius);
+            padding: 1.8rem 1.8rem 1.6rem;
+            margin-bottom: 1.6rem;
+            box-shadow: var(--shadow);
+        }
+        .version-head {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.4rem;
+            margin-bottom: 0.4rem;
+        }
+        .version-head h2 {
+            font-size: 1.45rem;
+            color: var(--brown);
+        }
+        .version-date {
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+        }
+        .version-tagline {
+            color: var(--text-muted);
+            font-size: 0.98rem;
+            margin-bottom: 1.2rem;
+        }
+        .feature {
+            display: flex;
+            gap: 0.9rem;
+            align-items: flex-start;
+            padding: 0.7rem 0;
+            border-top: 1px solid var(--border);
+        }
+        .feature:first-of-type { border-top: none; }
+        .feature .ico {
+            font-size: 1.4rem;
+            line-height: 1.6;
+            flex-shrink: 0;
+        }
+        .feature h3 {
+            font-size: 1.02rem;
+            color: var(--text-heading);
+            margin-bottom: 0.1rem;
+        }
+        .feature p {
+            font-size: 0.95rem;
+            color: var(--text-body);
+        }
+
+        .download-cta {
+            text-align: center;
+            margin: 1rem 0 3.5rem;
+        }
+        .download-cta p { color: var(--text-muted); margin-bottom: 1rem; }
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.6rem;
+            border-radius: 999px;
+            font-weight: 600;
+            text-decoration: none;
+            font-size: 0.98rem;
+            margin: 0.3rem;
+            transition: transform 0.15s, box-shadow 0.2s;
+        }
+        .btn-primary { background: var(--brown); color: #fff; }
+        .btn-secondary { background: var(--cream); color: var(--brown); border: 1px solid var(--brown); }
+        .btn:hover { transform: translateY(-2px); box-shadow: var(--shadow-hover); }
+
+        footer {
+            background: var(--brown);
+            color: rgba(255,255,255,0.85);
+            padding: 2.5rem 2rem 1.5rem;
+            margin-top: 2rem;
+        }
+        .footer-content {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: space-between;
+        }
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+        .footer-logo img { width: 30px; height: 30px; }
+        .footer-brand p { max-width: 280px; font-size: 0.9rem; }
+        .footer-section h4 { color: #fff; margin-bottom: 0.6rem; font-size: 0.95rem; }
+        .footer-section a {
+            display: block;
+            color: rgba(255,255,255,0.8);
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.15rem 0;
+        }
+        .footer-section a:hover { color: #fff; }
+        .footer-bottom {
+            max-width: 1000px;
+            margin: 1.5rem auto 0;
+            padding-top: 1.2rem;
+            border-top: 1px solid rgba(255,255,255,0.15);
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.6);
+        }
+
+        @media (max-width: 600px) {
+            nav { gap: 1rem; font-size: 14px; }
+            header { padding: 0.8rem 1.2rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <a href="index.html" class="logo">
+            <img src="logo-icon.svg" alt="Equora">
+            Equora
+        </a>
+        <nav>
+            <a href="para-ti.html">Para usuarios</a>
+            <a href="para-profesionales.html">Para profesionales</a>
+            <a href="index.html#launch">Descargar</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <img src="logo-icon.svg" alt="Icono de Equora Wellness" class="hero-icon">
+            <h1>Actualizaciones de Equora</h1>
+            <p>Equora crece con su comunidad. Aquí contamos, versión por versión, lo nuevo para que registres, entiendas y cuides tu proceso — siempre con tus datos solo en tu dispositivo.</p>
+        </section>
+
+        <!-- v1.7 — LIVE en Android desde 22/06/2026. -->
+        <article class="version">
+            <div class="version-head">
+                <h2>Versión 1.7</h2>
+                <span class="version-date">Lo más reciente</span>
+            </div>
+            <p class="version-tagline">Más tuya, más clara y más segura.</p>
+
+            <div class="feature">
+                <span class="ico">🎚️</span>
+                <div>
+                    <h3>Criterios personalizados</h3>
+                    <p>Agrega tus propias métricas al registro diario y haz seguimiento a lo que más importa en tu proceso.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <span class="ico">🧠</span>
+                <div>
+                    <h3>Reflexión guiada</h3>
+                    <p>Un nuevo espacio en Paz para anotar situaciones, pensamientos y emociones, y verlos con más calma.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <span class="ico">✨</span>
+                <div>
+                    <h3>Comparte tu racha</h3>
+                    <p>Convierte tu constancia en una imagen y compártela desde la pantalla de inicio, si quieres.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <span class="ico">💊</span>
+                <div>
+                    <h3>Aviso de inventario de medicamentos</h3>
+                    <p>Un recordatorio mensual para revisar cuánto te queda y que nunca te tome por sorpresa.</p>
+                </div>
+            </div>
+            <div class="feature">
+                <span class="ico">🔒</span>
+                <div>
+                    <h3>Mayor protección</h3>
+                    <p>La app está disponible para mayores de 18 años, reforzando el cuidado y la privacidad de quienes la usan.</p>
+                </div>
+            </div>
+        </article>
+
+        <div class="download-cta">
+            <p>¿Aún no la tienes? Equora es gratis en lo esencial.</p>
+            <a href="https://play.google.com/store/apps/details?id=com.equorawellness.app" target="_blank" class="btn btn-primary">▶ Descargar en Android</a>
+            <a href="https://apps.apple.com/us/app/equora-wellness/id6766343717" target="_blank" class="btn btn-secondary">Descargar en iOS</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand footer-section">
+                <div class="footer-logo">
+                    <img src="logo-icon.svg" alt="Equora">
+                    Equora
+                </div>
+                <p>Tu espacio seguro para registrar, entender y cuidar tu bienestar mental.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <a href="mailto:Equorapp@gmail.com">✉️ Equorapp@gmail.com</a>
+            </div>
+            <div class="footer-section">
+                <h4>Redes</h4>
+                <a href="https://www.instagram.com/equoraapp/">Instagram</a>
+                <a href="https://www.facebook.com/profile.php?id=61590824665190">Facebook</a>
+                <a href="https://www.tiktok.com/@equora_wellness">TikTok</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="privacy-policy.html">Política de privacidad</a>
+                <a href="terms.html">Términos de uso</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Equora — Construido con enfoque en tu bienestar y privacidad</span>
+            <span>Hecho con cariño</span>
+        </div>
+    </footer>
+
+</body>
+</html>
