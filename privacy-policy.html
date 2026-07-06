@@ -12,102 +12,200 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Política de Privacidad — Equora Wellness</title>
+    <meta name="description" content="Política de privacidad de Equora Wellness.">
+    <link rel="icon" type="image/svg+xml" href="logo-icon.svg">
     <style>
+        :root {
+            --brown:        #5A3E2B;
+            --green:        #5E7F68;
+            --green-dark:   #496655;
+            --gold:         #C8A165;
+            --cream:        #F6EFE6;
+            --beige:        #EDE3D6;
+            --terracota:    #C97A57;
+            --green-light:  rgba(94, 127, 104, 0.10);
+            --gold-light:   rgba(200, 161, 101, 0.12);
+            --card-bg:      #FDFAF6;
+            --text-heading: #5A3E2B;
+            --text-body:    #6B4E38;
+            --text-muted:   #9C7A60;
+            --border:       rgba(90, 62, 43, 0.12);
+            --shadow:       0 2px 16px rgba(90, 62, 43, 0.07);
+            --radius:       14px;
+        }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: Georgia, serif; background: #F6EFE6; color: #3A2E1E; line-height: 1.8; }
-        .container { max-width: 780px; margin: 0 auto; padding: 48px 24px 80px; }
-        .header { margin-bottom: 40px; border-bottom: 2px solid #C8A165; padding-bottom: 24px; }
-        .brand { font-family: Arial, sans-serif; font-size: 13px; letter-spacing: 3px; color: #8A7A6A; margin-bottom: 8px; }
-        h1 { font-size: 32px; color: #5A3E2B; margin-bottom: 8px; }
-        .date { font-family: Arial, sans-serif; font-size: 14px; color: #8A7A6A; }
-        section { margin-bottom: 32px; }
-        h2 { font-family: Arial, sans-serif; font-size: 20px; font-weight: bold; color: #5A3E2B; border-bottom: 1px solid #EDE3D6; padding-bottom: 8px; margin-bottom: 16px; }
-        h3 { font-family: Arial, sans-serif; font-size: 16px; font-weight: bold; color: #5A3E2B; margin: 20px 0 8px; }
-        p { margin-bottom: 12px; font-size: 15px; }
-        ul { padding-left: 24px; margin-bottom: 12px; }
-        li { margin-bottom: 6px; font-size: 15px; }
-        a { color: #5E7F68; }
-        .contact-box { background: #EDE3D6; border-radius: 8px; padding: 20px 24px; margin-top: 12px; border-left: 3px solid #C8A165; }
-        .footer { margin-top: 48px; padding-top: 24px; border-top: 1px solid #C8A165; text-align: center; font-family: Arial, sans-serif; font-size: 13px; color: #8A7A6A; }
-        nav { background: #5A3E2B; padding: 14px 24px; display: flex; align-items: center; justify-content: space-between; }
-        nav .logo { color: #EDE3D6; font-family: Georgia, serif; font-size: 18px; font-weight: bold; text-decoration: none; }
-        nav a { color: #C8A165; font-family: Arial, sans-serif; font-size: 13px; text-decoration: none; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            color: var(--text-body);
+            background: var(--beige);
+            line-height: 1.7;
+        }
+        header {
+            padding: 1rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            background: rgba(246, 239, 230, 0.93);
+            backdrop-filter: blur(14px);
+            -webkit-backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        .logo { display: flex; align-items: center; gap: 0.6rem; font-size: 20px; font-weight: 700; color: var(--brown); text-decoration: none; }
+        .logo img { width: 34px; height: 34px; }
+        nav { display: flex; gap: 1.6rem; align-items: center; }
+        nav a { color: var(--text-body); text-decoration: none; font-size: 15px; font-weight: 500; transition: color 0.2s; }
+        nav a:hover { color: var(--brown); }
+
+        main { max-width: 760px; margin: 0 auto; padding: 0 1.5rem; }
+
+        .doc-hero { text-align: center; padding: 3rem 0 2rem; }
+        .doc-hero h1 { font-size: clamp(1.9rem, 5vw, 2.4rem); color: var(--text-heading); margin-bottom: 0.6rem; }
+        .doc-hero p { color: var(--text-muted); font-size: 0.95rem; }
+
+        .doc-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 2.2rem 2rem;
+            margin-bottom: 3rem;
+            box-shadow: var(--shadow);
+        }
+        .doc-card h2 { font-size: 1.2rem; color: var(--brown); margin-top: 2rem; margin-bottom: 0.7rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--border); }
+        .doc-card h2:first-child { margin-top: 0; }
+        .doc-card h3 { font-size: 1rem; color: var(--brown); margin-top: 1.3rem; margin-bottom: 0.5rem; }
+        .doc-card p { margin-bottom: 0.9rem; font-size: 0.95rem; }
+        .doc-card ul, .doc-card ol { margin-left: 1.4rem; margin-bottom: 0.9rem; }
+        .doc-card li { margin-bottom: 0.4rem; font-size: 0.95rem; }
+        .doc-card strong { color: var(--brown); }
+        .doc-card a { color: var(--green-dark); }
+
+        .contact-box { background: var(--beige); border-radius: 10px; padding: 1.2rem 1.4rem; margin-top: 0.75rem; border-left: 3px solid var(--gold); }
+        .contact-box p { margin-bottom: 0.4rem; font-size: 0.95rem; }
+
+        footer { background: var(--brown); color: rgba(255,255,255,0.85); padding: 2.5rem 2rem 1.5rem; margin-top: 2rem; }
+        .footer-content { max-width: 1000px; margin: 0 auto; display: flex; flex-wrap: wrap; gap: 2rem; justify-content: space-between; }
+        .footer-logo { display: flex; align-items: center; gap: 0.6rem; font-weight: 700; font-size: 1.1rem; color: #fff; margin-bottom: 0.5rem; }
+        .footer-logo img { width: 30px; height: 30px; }
+        .footer-brand p { max-width: 280px; font-size: 0.9rem; }
+        .footer-section h4 { color: #fff; margin-bottom: 0.6rem; font-size: 0.95rem; }
+        .footer-section a { display: block; color: rgba(255,255,255,0.8); text-decoration: none; font-size: 0.9rem; padding: 0.15rem 0; }
+        .footer-section a:hover { color: #fff; }
+        .footer-bottom { max-width: 1000px; margin: 1.5rem auto 0; padding-top: 1.2rem; border-top: 1px solid rgba(255,255,255,0.15); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 0.5rem; font-size: 0.82rem; color: rgba(255,255,255,0.6); }
+
+        @media (max-width: 600px) {
+            nav { gap: 1rem; font-size: 14px; }
+            header { padding: 0.8rem 1.2rem; }
+        }
     </style>
 </head>
 <body>
-    <nav>
-        <a href="/" class="logo">Equora Wellness</a>
-        <a href="/privacy-policy-en.html">English version</a>
-    </nav>
-    <div class="container">
-        <div class="header">
-            <p class="brand">EQUORA WELLNESS</p>
+
+    <header>
+        <a href="index.html" class="logo">
+            <img src="logo-icon.svg" alt="Equora">
+            Equora
+        </a>
+        <nav>
+            <a href="para-ti.html">Para usuarios</a>
+            <a href="para-profesionales.html">Para profesionales</a>
+            <a href="privacy-policy-en.html">English version</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="doc-hero">
             <h1>Política de Privacidad</h1>
-            <p class="date">Última actualización: 2 de junio de 2026</p>
-        </div>
-        <section>
+            <p>Última actualización: 3 de julio de 2026</p>
+        </section>
+
+        <div class="doc-card">
             <h2>1. Información general</h2>
             <p>Equora Wellness (en adelante "la Aplicación") es desarrollada y operada por Brayner Eduardo Conrado Duque, persona natural con domicilio en Colombia, en adelante "el Desarrollador".</p>
             <p>La Aplicación está diseñada para el seguimiento personal del bienestar mental y emocional. El Desarrollador se compromete a proteger la privacidad de sus usuarios y a garantizar la seguridad de sus datos personales.</p>
             <p>Para cualquier consulta relacionada con esta Política, puede contactarnos en: <a href="mailto:Equorapp@gmail.com">Equorapp@gmail.com</a></p>
-        </section>
-        <section>
+
             <h2>2. Datos que recopila la Aplicación</h2>
             <h3>2.1 Datos de registro</h3>
-            <p>Al crear una cuenta, la Aplicación solicita: nombre completo, fecha de nacimiento y PIN de seguridad (almacenado como hash SHA-256; el Desarrollador no tiene acceso al PIN original). La fecha de nacimiento se usa exclusivamente para verificar la mayoría de edad y calcular la edad del usuario. No se comparte con terceros.</p>
+            <p>Al crear una cuenta, la Aplicación solicita: nombre completo, fecha de nacimiento y clave de acceso de 6 caracteres (almacenada como hash SHA-256; el Desarrollador no tiene acceso a la clave original). La fecha de nacimiento se usa exclusivamente para verificar la mayoría de edad y calcular la edad del usuario. No se comparte con terceros.</p>
             <h3>2.2 Datos de seguimiento diario</h3>
             <ul><li>Estado de ánimo</li><li>Nivel de ansiedad</li><li>Nivel de irritabilidad</li><li>Nivel de energía</li><li>Nivel de concentración</li><li>Horas de sueño y calidad del sueño</li><li>Actividad física / ejercicio</li></ul>
             <h3>2.3 Datos de salud</h3>
             <ul><li>Medicamentos: nombre, dosis, horario y recordatorios</li><li>Contacto de emergencia: nombre y número de teléfono</li></ul>
-            <h3>2.4 Versión premium</h3>
-            <ul><li>Datos biométricos (huella o face ID) solo para autenticación — procesados por el OS, nunca transmitidos.</li><li>Variables de seguimiento personalizadas.</li></ul>
-        </section>
-        <section>
+            <h3>2.4 Datos de funciones opcionales</h3>
+            <ul><li>Datos biométricos (huella o Face ID), disponibles para todos los usuarios, solo para autenticación — procesados por el sistema operativo, nunca transmitidos ni almacenados por la Aplicación.</li><li>Variables de seguimiento personalizadas definidas por el usuario (algunas disponibles en la versión Plus).</li></ul>
+
             <h2>3. Almacenamiento y procesamiento de datos</h2>
             <p>Todos los datos se almacenan exclusiva y localmente en el dispositivo del usuario. La Aplicación no tiene servidores, no transmite datos a Internet y no usa analítica ni publicidad de terceros.</p>
             <ul><li>El Desarrollador no tiene acceso a los datos en ningún momento.</li><li>Los datos no se sincronizan con la nube.</li><li>Desinstalar la Aplicación elimina los datos permanentemente.</li><li>El usuario es el único responsable de sus copias de seguridad.</li></ul>
-        </section>
-        <section>
+
             <h2>4. Seguridad de los datos</h2>
-            <ul><li>PIN almacenado como hash SHA-256.</li><li>Autenticación biométrica opcional (versión premium).</li><li>Datos en almacenamiento privado del dispositivo, inaccesible para otras apps.</li></ul>
+            <ul><li>Tus registros se cifran con AES-256; la llave de cifrado se genera y protege en el chip de seguridad del dispositivo (Secure Enclave en iOS, Keystore en Android) y nunca sale de ahí.</li><li>Clave de acceso de 6 caracteres almacenada como hash SHA-256; el Desarrollador no tiene acceso a la clave original.</li><li>Autenticación biométrica opcional (versión premium).</li><li>Datos en almacenamiento privado del dispositivo, inaccesible para otras apps.</li></ul>
             <p>Ningún sistema es absolutamente infalible. El Desarrollador no garantiza seguridad absoluta ante acceso físico no autorizado al dispositivo.</p>
-        </section>
-        <section>
+
             <h2>5. Compartición de datos con terceros</h2>
             <p>La Aplicación no vende, cede ni comparte datos personales con terceros bajo ninguna circunstancia.</p>
             <p>Los únicos componentes de terceros son librerías Capacitor (Ionic) para funcionalidades nativas locales. No recopilan ni transmiten datos del usuario.</p>
-        </section>
-        <section>
+
             <h2>6. Edad mínima de uso</h2>
             <p>La Aplicación está dirigida exclusivamente a personas de <strong>18 años o más</strong>. Equora maneja información de salud mental sensible — incluyendo estados de ánimo, medicamentos y situaciones de crisis — lo que hace necesario este requisito para proteger a los usuarios menores de edad.</p>
             <p>El proceso de registro incluye tres niveles de verificación de edad: (1) declaración explícita de mayoría de edad, (2) ingreso de fecha de nacimiento con selector bloqueado para menores de 18 años, y (3) verificación automática de edad calculada desde la fecha ingresada.</p>
             <p>No recopilamos intencionalmente información de menores de 18 años. Si usted es padre, madre o tutor legal y sabe que un menor ha utilizado la Aplicación: todos los datos están en el dispositivo y el Desarrollador no tiene acceso a ellos. La eliminación es responsabilidad del tutor legal con custodia del dispositivo. Para eliminar: desinstale la Aplicación o use la opción en configuración. Para reportar el caso: <a href="mailto:Equorapp@gmail.com">Equorapp@gmail.com</a>.</p>
-        </section>
-        <section>
+
             <h2>7. Derechos del usuario</h2>
             <ul><li>Acceder a sus datos desde la Aplicación.</li><li>Rectificar datos desde configuración.</li><li>Eliminar todos sus datos desinstalando la Aplicación.</li><li>Exportar su información en PDF desde la función de reporte.</li></ul>
             <p>El ejercicio de estos derechos se realiza directamente desde el dispositivo del usuario.</p>
-        </section>
-        <section>
+
             <h2>8. Exportación de datos</h2>
             <p>La Aplicación permite exportar registros en PDF. El archivo se genera localmente y el usuario es responsable de gestionarlo.</p>
-        </section>
-        <section>
+
             <h2>9. Cambios en esta Política</h2>
             <p>El Desarrollador puede actualizar esta Política en cualquier momento. Cambios significativos serán notificados dentro de la Aplicación. La versión vigente estará disponible en <a href="https://equorawellness.com">equorawellness.com</a>.</p>
-        </section>
-        <section>
+
             <h2>10. Contacto</h2>
             <div class="contact-box">
                 <p><strong>Brayner Eduardo Conrado Duque</strong></p>
                 <p>Correo: <a href="mailto:Equorapp@gmail.com">Equorapp@gmail.com</a></p>
                 <p>País: Colombia</p>
             </div>
-        </section>
-        <div class="footer">
-            <p>Equora Wellness · Equorapp@gmail.com · equorawellness.com</p>
-            <p style="margin-top:8px"><a href="/privacy-policy-en.html">Privacy Policy (English)</a></p>
         </div>
-    </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand footer-section">
+                <div class="footer-logo">
+                    <img src="logo-icon.svg" alt="Equora">
+                    Equora
+                </div>
+                <p>Tu espacio seguro para registrar, entender y cuidar tu bienestar mental.</p>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <a href="mailto:Equorapp@gmail.com">✉️ Equorapp@gmail.com</a>
+            </div>
+            <div class="footer-section">
+                <h4>Redes</h4>
+                <a href="https://www.instagram.com/equoraapp/">Instagram</a>
+                <a href="https://www.facebook.com/profile.php?id=61590824665190">Facebook</a>
+                <a href="https://www.tiktok.com/@equora_wellness">TikTok</a>
+            </div>
+            <div class="footer-section">
+                <h4>Legal</h4>
+                <a href="privacy-policy.html">Política de privacidad</a>
+                <a href="terms.html">Términos de uso</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Equora — Construido con enfoque en tu bienestar y privacidad</span>
+            <span>Hecho con cariño</span>
+        </div>
+    </footer>
+
 </body>
 </html>
