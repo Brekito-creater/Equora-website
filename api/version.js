@@ -64,8 +64,13 @@ export default async function handler(req, res) {
   const plataforma = detectarPlataforma(req.headers["user-agent"]);
 
   // El conteo es "mejor esfuerzo": si falla, jamás debe romper la respuesta real
-  // que la app necesita para saber si hay una versión nueva.
-  registrarApertura(plataforma).catch(() => {});
+  // que la app necesita para saber si hay una versión nueva. Se espera (await)
+  // a propósito — en funciones serverless, el trabajo async que sigue corriendo
+  // DESPUÉS de responder puede cortarse a mitad de camino (la función se congela
+  // apenas se envía la respuesta), así que el conteo nunca se completaría.
+  try {
+    await registrarApertura(plataforma);
+  } catch (_) {}
 
   res.setHeader("Cache-Control", "no-store");
   res.status(200).json(INFO_VERSION);
