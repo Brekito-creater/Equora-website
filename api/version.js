@@ -72,6 +72,13 @@ export default async function handler(req, res) {
     await registrarApertura(plataforma);
   } catch (_) {}
 
+  // La app corre dentro de una WebView cuyo origen es https://localhost (Android) o
+  // capacitor://localhost (iOS) — para el navegador esto es otro dominio, así que sin
+  // este header la petición llega igual (el contador suma) pero el navegador le niega
+  // la respuesta al JS: checkForUpdate() cae en su catch y el banner nunca aparece.
+  // El asterisco es seguro AQUÍ porque este JSON es público (versión, mensaje, links
+  // de tienda). No replicar en api/stats.js, que sí devuelve datos privados.
+  res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader("Cache-Control", "no-store");
   res.status(200).json(INFO_VERSION);
 }
