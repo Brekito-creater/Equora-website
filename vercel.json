@@ -1,5 +1,0 @@
-{
-  "rewrites": [
-    { "source": "/version.json", "destination": "/api/version" }
-  ]
-}
